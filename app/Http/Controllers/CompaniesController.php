@@ -2,100 +2,107 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateCompanyRequest;
+use App\Http\Requests\StoreCompanyRequest;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Company;
 
 class CompaniesController extends Controller
 {
-    
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $companies = Company::get();
-        return view('company.index', compact('companies'));
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('company.create');
-    }
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function index()
+	{
+		$companies = Company::get();
+		return view('companies.index', compact('companies'));
+	}
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        // Authorization
-        // Validations
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function create()
+	{
+		return view('companies.create');
+	}
 
-        // Store
-        Company::create($request->all());
-        return response()->json('Success');
-    }
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return \Illuminate\Http\Response
+	 */
+	public function store(StoreCompanyRequest $request)
+	{
+		try {
+			DB::beginTransaction();
+			Company::create($request->all());
+			$request->file('logo')->store('logo');
+			DB::commit();
+		} catch (\Throwable $t) {
+			DB::rollback();
+			return redirect()->back()->withErrors(['error' => $t->getMessage()]);
+		}
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Company $company)
-    {
-        return view('company.show', compact($company));
-    }
+		return redirect()->route('companies.index');
+	}
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Company $company)
-    {
-        return view('company.edit', compact($company));
-    }
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return \Illuminate\Http\Response
+	 */
+	public function show(Company $company)
+	{
+		// return view('company.show', compact('company'));
+	}
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Company $company)
-    {
-        // Authorization
-        // Validations
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return \Illuminate\Http\Response
+	 */
+	public function edit(Company $company)
+	{
+		return view('companies.edit', compact('company'));
+	}
 
-        $company->update($request->all());
-        return response()->json('Updated successfully');
-    }
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @param  int  $id
+	 * @return \Illuminate\Http\Response
+	 */
+	public function update(UpdateCompanyRequest $request, Company $company)
+	{
+		$company->update($request->all());
+		return redirect()->route('companies.index')->withSuccess($company->first_name . ' updated!');
+	}
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Company $company)
-    {
-        // Authorization
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return \Illuminate\Http\Response
+	 */
+	public function destroy(Company $company)
+	{
+		// Authorization
 
-        $company->delete();
+		// Ask before delete with a modal
+		// $company->delete();
 
-        // also delete users 
-        return response()->json('Deleted successfully');
-    }
+		// also delete users
+		return redirect()->route('companies.index')->withSuccess(' Company deleted!');
+		
+	}
 }

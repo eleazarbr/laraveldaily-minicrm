@@ -79,15 +79,12 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    MiniCRM
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a target="_blank" href="https://eresendez.com">Eleazar Resendez</a>
+                    <a target="_blank" href="https://github.com/eleazarbr/laraveldaily-minicrm">Github</a>
                 </div>
             </div>
         </div>

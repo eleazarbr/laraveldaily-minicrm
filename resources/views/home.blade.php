@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Welcome, to the Mini CRM!
                 </div>
             </div>
         </div>

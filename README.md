@@ -23,3 +23,8 @@ This is my implementation of the mini-crm project from [Laravel Daily](http://la
 - Created the resources controllers `CompaniesController` and `EmployeesController` and their respective models.
 - Created the migrations for both models with their relationships.
 - Developed an outline of CRUD code, to later test it from the frontend.
+- Started with the company module, created some views and form validations.
+
+## License
+
+This project is open-sourced software licensed under the MIT license.
