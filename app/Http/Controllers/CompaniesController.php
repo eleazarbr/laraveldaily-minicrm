@@ -42,15 +42,16 @@ class CompaniesController extends Controller
 	{
 		try {
 			DB::beginTransaction();
-			Company::create($request->all());
+			$company = Company::create($request->all());
 			$request->file('logo')->store('logo');
 			DB::commit();
+			$response = $company->first_name . " successfully created!";
 		} catch (\Throwable $t) {
 			DB::rollback();
 			return redirect()->back()->withErrors(['error' => $t->getMessage()]);
 		}
 
-		return redirect()->route('companies.index');
+		return redirect()->route('companies.index')->withSuccess($response);
 	}
 
 	/**
@@ -61,7 +62,7 @@ class CompaniesController extends Controller
 	 */
 	public function show(Company $company)
 	{
-		// return view('company.show', compact('company'));
+		return view('companies.show', compact('company'));
 	}
 
 	/**
@@ -96,13 +97,10 @@ class CompaniesController extends Controller
 	 */
 	public function destroy(Company $company)
 	{
-		// Authorization
-
-		// Ask before delete with a modal
-		// $company->delete();
-
+		$message = $company->first_name . " successfully deleted!";
+		$company->delete();
 		// also delete users
-		return redirect()->route('companies.index')->withSuccess(' Company deleted!');
-		
+
+		return redirect()->route('companies.index')->withSuccess($message);
 	}
 }

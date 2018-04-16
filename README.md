@@ -1,4 +1,4 @@
-# Laravel Daily - Mini-CRM
+# Laravel Daily - MiniCRM
 
 This is my implementation of the mini-crm project from [Laravel Daily](http://laraveldaily.com/test-junior-laravel-developer-sample-project/).
 
@@ -10,7 +10,7 @@ This is my implementation of the mini-crm project from [Laravel Daily](http://la
 - [x] Companies DB table consists of these fields: Name (required), email, logo (minimum 100×100), website
 - [x] CRUD functionality (Create / Read / Update / Delete) for two menu items: Companies and Employees.
 - [x] Use database migrations to create those schemas above
-- [ ] Create views
+- [x] Create views
 - [ ] Use basic Laravel resource controllers with default methods – index, create, store etc.
 - [ ] Store companies logos in storage/app/public folder and make them accessible from public
 
@@ -23,7 +23,8 @@ This is my implementation of the mini-crm project from [Laravel Daily](http://la
 - Created the resources controllers `CompaniesController` and `EmployeesController` and their respective models.
 - Created the migrations for both models with their relationships.
 - Developed an outline of CRUD code, to later test it from the frontend.
-- Started with the company module, created some views and form validations.
+- Started with the company module, created views and form validations.
+- Created views for employees.
 
 ## License
 

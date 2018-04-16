@@ -25,7 +25,7 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
-				<div class="panel-heading">Companies</div>
+				<div class="panel-heading">Employees</div>
 
 				<div class="panel-body">
 					@if (session('success'))
@@ -37,8 +37,8 @@
                         </div>
                     @endif
 					<div class="text-left">
-						<a href="{{ route('companies.create') }}" type="submit" class="btn btn-primary">
-							+ New company
+						<a href="{{ route('employees.create') }}" type="submit" class="btn btn-primary">
+							+ New employee
 						</a>
 					</div>
 					
@@ -48,22 +48,24 @@
 					<thead>
 						<tr>
 							<th>Name</th>
+							<th>Company</th>
 							<th>Email</th>
-							<th>Website</th>
+							<th>Phone</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($companies as $company)
+						@foreach($employees as $employee)
 						<tr>
-							<td> {{$company['first_name']}} </td>
-							<td> {{$company['email']}} </td>
-							<td> {{$company['website']}} </td>
+							<td> {{$employee['fullname']}} </td>
+							<td> {{$employee->company['first_name']}} </td>
+							<td> {{$employee['email']}} </td>
+							<td> {{$employee['phone']}} </td>
 							<td>
-								<form method="POST" action="{{route('companies.destroy', ['id' => $company->id])}}">
-									<a href="{{ route('companies.show', ['id' => $company->id]) }}" type="submit" class="btn btn-sm btn-success"> Show </a>
-									<a href="{{ route('companies.edit', ['id' => $company->id]) }}" type="submit" class="btn btn-sm btn-primary"> Edit </a>
-									<a href="#" data-record-id="{{$company->id}}" data-record-title="{{$company->first_name}}" data-toggle="modal" data-target="#confirm-delete" type="submit" class="btn btn-sm btn-danger">Delete</a>
+								<form method="POST" action="{{route('employees.destroy', ['id' => $employee->id])}}">
+									<a href="{{ route('employees.show', ['id' => $employee->id]) }}" type="submit" class="btn btn-sm btn-success"> Show </a>
+									<a href="{{ route('employees.edit', ['id' => $employee->id]) }}" type="submit" class="btn btn-sm btn-primary"> Edit </a>
+									<a href="#" data-record-id="{{$employee->id}}" data-record-title="{{$employee->first_name}}" data-toggle="modal" data-target="#confirm-delete" type="submit" class="btn btn-sm btn-danger">Delete</a>
 									<!-- <button href="#" type="submit" class="btn btn-sm btn-danger">Delete</button> -->
 								</form>
 							</td>
@@ -83,7 +85,7 @@
 
 $('#confirm-delete').on('show.bs.modal', function(e) {
   	var data = $(e.relatedTarget).data();
-	var route = "/companies/"+data.recordId;
+	var route = "/employees/"+data.recordId;
 
   	$('.title', this).text('Confirm delete ' + data.recordTitle);
 	$('#delete-form').attr('action', route);
