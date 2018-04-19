@@ -2,7 +2,13 @@
 
 This is my implementation of the mini-crm project from [Laravel Daily](http://laraveldaily.com/test-junior-laravel-developer-sample-project/).
 
-## Content
+
+#### Table of contents
+- [About](#about)
+- [Summary](#summary)
+- [Installation Instructions](#installation-instructions)
+
+#### About
 
 - [x] Basic Laravel Auth: ability to log in as administrator or user.
 - [x] Use database seeds to create first user with email "admin@admin.com" and password "password".
@@ -11,8 +17,8 @@ This is my implementation of the mini-crm project from [Laravel Daily](http://la
 - [x] CRUD functionality (Create / Read / Update / Delete) for two menu items: Companies and Employees.
 - [x] Use database migrations to create those schemas above
 - [x] Create views
+- [x] Store companies logos in storage/app/public folder and make them accessible from public
 - [ ] Use basic Laravel resource controllers with default methods – index, create, store etc.
-- [ ] Store companies logos in storage/app/public folder and make them accessible from public
 
 ## Summary
 
@@ -25,7 +31,23 @@ This is my implementation of the mini-crm project from [Laravel Daily](http://la
 - Developed an outline of CRUD code, to later test it from the frontend.
 - Started with the company module, created views and form validations.
 - Created views for employees.
+- Created a symbolic link using `php artisan storage:link` to access the logos stored in storage.
 
+
+#### Instalation Instructions
+
+1. Run `git clone https://github.com/eleazarbr/laraveldaily-minicrm`
+2. Create a MySQL database for the project
+    * ```mysql -u root -p```, 
+    * ```create database laraveldaily;```
+    * ```\q```
+3. From the projects root run `cp .env.example .env`
+4. Configure your `.env` file
+5. Run `composer update` from the projects root folder
+6. From the projects root folder run `php artisan key:generate`
+7. From the projects root folder run `php artisan migrate`
+8. From the projects root folder run `composer dump-autoload`
+9. From the projects root folder run `php artisan db:seed`
 ## License
 
 This project is open-sourced software licensed under the MIT license.

@@ -37,7 +37,7 @@
                         </div>
                     @endif
 					<div class="text-left">
-						<a href="{{ route('companies.create') }}" type="submit" class="btn btn-primary">
+						<a href="{{ route('companies.create') }}" type="submit" class="btn btn-primary btn-flat margin-bottom-1">
 							+ New company
 						</a>
 					</div>

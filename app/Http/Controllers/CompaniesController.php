@@ -43,12 +43,14 @@ class CompaniesController extends Controller
 		try {
 			DB::beginTransaction();
 			$company = Company::create($request->all());
-			$request->file('logo')->store('logo');
+			
+			$logo = $request->file('logo')->storeAs('logo', $company->id, 'public');
+			$company->update(['logo' => $company->id]);
 			DB::commit();
 			$response = $company->first_name . " successfully created!";
 		} catch (\Throwable $t) {
 			DB::rollback();
-			return redirect()->back()->withErrors(['error' => $t->getMessage()]);
+			return redirect()->back()->withInput($request->all())->withErrors(['error' => $t->getMessage()]);
 		}
 
 		return redirect()->route('companies.index')->withSuccess($response);
@@ -85,7 +87,14 @@ class CompaniesController extends Controller
 	 */
 	public function update(UpdateCompanyRequest $request, Company $company)
 	{
-		$company->update($request->all());
+		$logo = $request->file('logo')->storeAs('logo', $company->id, 'public');
+		$company->update([
+			'first_name' => $request->first_name,
+			'email' => $request->email,
+			'website' => $request->website,
+			'logo' => $company->id
+		]);
+		
 		return redirect()->route('companies.index')->withSuccess($company->first_name . ' updated!');
 	}
 

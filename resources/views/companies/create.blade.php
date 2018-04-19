@@ -11,12 +11,14 @@
 					<form class="form-horizontal" method="POST" action="{{ route('companies.store') }}" enctype="multipart/form-data">
 						{{ csrf_field() }}
 
-						@if($errors->has('error'))
-							<span class="help-block text-center">
-								<strong>{{$errors->first()}}</strong>
-							</span>
-						@endif
-
+						<div class="form-group{{ $errors->has('error') ? ' has-error' : '' }}">
+							@if($errors->has('error'))
+								<span class="help-block text-center">
+									<strong>{{$errors->first()}}</strong>
+								</span>
+							@endif
+						<div>
+						
 						<div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
 							<label for="name" class="col-md-4 control-label">Name</label>
 
@@ -63,7 +65,7 @@
 							<label for="website" class="col-md-4 control-label">Website</label>
 
 							<div class="col-md-6">
-								<input id="website" type="text" class="form-control" name="website">
+								<input id="website" type="text" class="form-control" name="website" value="{{ old('website') }}">
 
 								@if ($errors->has('website'))
 									<span class="help-block">
