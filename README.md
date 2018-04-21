@@ -18,7 +18,16 @@ This is my implementation of the mini-crm project from [Laravel Daily](http://la
 - [x] Use database migrations to create those schemas above
 - [x] Create views
 - [x] Store companies logos in storage/app/public folder and make them accessible from public
-- [ ] Use basic Laravel resource controllers with default methods – index, create, store etc.
+- [x] Use basic Laravel resource controllers with default methods – index, create, store etc.
+- [x] Use Laravel’s validation function, using Request classes
+- [ ] Use Laravel’s pagination for showing Companies/Employees list, 10 entries per page
+- [ ] Use Laravel make:auth as default Bootstrap-based design theme, but remove ability to register
+- [ ] Use Datatables.net library to show table – with our without server-side rendering
+- [ ] Use more complicated front-end theme like AdminLTE
+- [ ] Email notification: send email whenever new company is entered (use Mailgun or Mailtrap)
+- [ ] Make the project multi-language (using resources/lang folder)
+- [ ] Basic testing with PHPUnit
+
 
 ## Summary
 
@@ -32,9 +41,10 @@ This is my implementation of the mini-crm project from [Laravel Daily](http://la
 - Started with the company module, created views and form validations.
 - Created views for employees.
 - Created a symbolic link using `php artisan storage:link` to access the logos stored in storage.
+- Finished coding the basic crud for companies and employees.
+- 
 
-
-#### Instalation Instructions
+#### Installation Instructions
 
 1. Run `git clone https://github.com/eleazarbr/laraveldaily-minicrm`
 2. Create a MySQL database for the project
