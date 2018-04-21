@@ -45,10 +45,10 @@
 
                             <div class="col-md-6">
                                 <div class="card" style="width: 18rem;">
-                                <img class="card-img-top img-responsive" src="{{asset('storage/logo/'.$company['logo'])}}" alt="Logo">
-                                <div class="card-body">
-                                    <input id="logo" type="file" name="logo" multiple>
-                                </div>
+                                    <img class="card-img-top img-responsive" src="{{asset('storage/logo/'.$company['logo'])}}" alt="">
+                                    <div class="card-body">
+                                        <input id="logo" type="file" name="logo" multiple>
+                                    </div>
                                 </div>
 
                                 @if ($errors->has('logo'))

@@ -54,6 +54,11 @@
 						</tr>
 					</thead>
 					<tbody>
+						@if($companies->isEmpty())
+						<tr>
+							<td>No records found... <a href="{{route('companies.create')}}">Add a new company!</a></td>
+						</tr>
+						@else
 						@foreach($companies as $company)
 						<tr>
 							<td> {{$company['first_name']}} </td>
@@ -69,6 +74,7 @@
 							</td>
 						</tr>
 						@endforeach
+						@endif
 					</tbody>
 					</table>
 				</div>

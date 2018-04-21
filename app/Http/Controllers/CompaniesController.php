@@ -44,8 +44,11 @@ class CompaniesController extends Controller
 			DB::beginTransaction();
 			$company = Company::create($request->all());
 			
-			$logo = $request->file('logo')->storeAs('logo', $company->id, 'public');
-			$company->update(['logo' => $company->id]);
+			if ($request->has('logo')) {
+				$logo = $request->file('logo')->storeAs('logo', $company->id, 'public');
+				$company->update(['logo' => $company->id]);
+			}
+			
 			DB::commit();
 			$response = $company->first_name . " successfully created!";
 		} catch (\Throwable $t) {
@@ -87,7 +90,9 @@ class CompaniesController extends Controller
 	 */
 	public function update(UpdateCompanyRequest $request, Company $company)
 	{
-		$logo = $request->file('logo')->storeAs('logo', $company->id, 'public');
+		if ($request->has('logo'))
+			$logo = $request->file('logo')->storeAs('logo', $company->id, 'public');
+	
 		$company->update([
 			'first_name' => $request->first_name,
 			'email' => $request->email,
