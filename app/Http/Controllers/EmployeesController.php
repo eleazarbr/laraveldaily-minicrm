@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateEmployeeRequest;
+use App\Http\Requests\StoreEmployeeRequest;
 use Illuminate\Http\Request;
 use App\Employee;
+use App\Company;
 
 class EmployeesController extends Controller
 {
@@ -25,7 +28,8 @@ class EmployeesController extends Controller
 	 */
 	public function create()
 	{
-		return view('employees.create');
+		$companies = Company::get();
+		return view('employees.create', compact('companies'));
 	}
 
 	/**
@@ -34,11 +38,16 @@ class EmployeesController extends Controller
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store(Request $request)
+	public function store(StoreEmployeeRequest $request)
 	{
-		// Store
-		Employee::create($request->all());
-		return response()->json('Employee created successfully');
+		try {
+			$employee = Employee::create($request->all());
+			$response = redirect()->route('employees.index')->withSuccess($employee->first_name . ' has been created!');
+		} catch (\Throwable $t) {
+			$response = redirect()->back()->withErrors($t->getMessage());
+		}
+
+		return $response;
 	}
 
 	/**
@@ -49,7 +58,7 @@ class EmployeesController extends Controller
 	 */
 	public function show(Employee $employee)
 	{
-		return view('employees.show', compact($employee));
+		return view('employees.show', compact('employee'));
 	}
 
 	/**
@@ -60,7 +69,8 @@ class EmployeesController extends Controller
 	 */
 	public function edit(Employee $employee)
 	{
-		return view('employees.edit', compact($employee));
+		$companies = Company::get();
+		return view('employees.edit', compact('employee', 'companies'));
 	}
 
 	/**
@@ -70,13 +80,10 @@ class EmployeesController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, Employee $employee)
+	public function update(UpdateEmployeeRequest $request, Employee $employee)
 	{
-		// Authorization
-		// Validations
-
 		$employee->update($request->all());
-		return response()->json('Updated successfully');
+		return redirect()->route('employees.index')->withSuccess($employee->first_name . ' has been updated!');
 	}
 
 	/**
@@ -87,11 +94,9 @@ class EmployeesController extends Controller
 	 */
 	public function destroy(Employee $employee)
 	{
-		// Authorization
-
+		$message = $employee->fullname . " successfully deleted!";
 		$employee->delete();
 
-		// also delete users
-		return response()->json('Deleted successfully');
+		return redirect()->route('employees.index')->withSuccess($message);
 	}
 }

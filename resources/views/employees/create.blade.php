@@ -8,7 +8,7 @@
 				<div class="panel-heading">Create employee</div>
 
 				<div class="panel-body">
-					<form class="form-horizontal" method="POST" action="{{ route('employees.store') }}" enctype="multipart/form-data">
+					<form class="form-horizontal" method="POST" action="{{ route('employees.store') }}">
 						{{ csrf_field() }}
 
 						@if($errors->has('error'))
@@ -18,7 +18,7 @@
 						@endif
 
 						<div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
-							<label for="name" class="col-md-4 control-label">Name</label>
+							<label for="name" class="col-md-4 control-label">First Name</label>
 
 							<div class="col-md-6">
 								<input id="name" type="text" class="form-control" name="first_name" value="{{ old('first_name') }}" autofocus>
@@ -77,8 +77,11 @@
 							<label for="company_id" class="col-md-4 control-label">Company</label>
 
 							<div class="col-md-6">
-								<input id="company_id" type="text" class="form-control" name="company_id">
-
+								<select class="form-control" name="company_id">
+									@foreach($companies as $company)
+										<option value="{{$company->id}}"> {{$company->first_name}} </option>
+									@endforeach
+								</select>
 								@if ($errors->has('company_id'))
 									<span class="help-block">
 										<strong>{{ $errors->first('company_id') }}</strong>

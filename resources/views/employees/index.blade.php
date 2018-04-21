@@ -55,6 +55,11 @@
 						</tr>
 					</thead>
 					<tbody>
+						@if($employees->isEmpty())
+						<tr>
+							<td>No records found... <a href="{{route('employees.create')}}">Add an employee!</a></td>
+						</tr>
+						@else
 						@foreach($employees as $employee)
 						<tr>
 							<td> {{$employee['fullname']}} </td>
@@ -71,6 +76,7 @@
 							</td>
 						</tr>
 						@endforeach
+						@endif
 					</tbody>
 					</table>
 				</div>

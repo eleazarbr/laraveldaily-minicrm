@@ -8,7 +8,7 @@
             <div class="modal-header title">
             </div>
             <div class="modal-body">
-                Are you sure you want to continue? This action is irreversible!
+                Are you sure you want to continue? This action is irreversible and will eliminate all your related employees!
             </div>
             <div class="modal-footer">
 				<form id="delete-form" method="POST">
