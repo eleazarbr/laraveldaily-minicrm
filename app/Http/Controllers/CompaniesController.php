@@ -16,10 +16,18 @@ class CompaniesController extends Controller
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
-		$companies = Company::get();
-		return view('companies.index', compact('companies'));
+		$companies = Company::orderBy('created_at', 'DESC')->paginate(10);
+		switch ($request->ws) {
+			case 'getCompanies' :
+				return $companies;
+				break;
+
+			default :
+				return view('companies.index', compact('companies'));
+				break;
+		}
 	}
 
 	/**

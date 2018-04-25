@@ -8,7 +8,7 @@
             <div class="modal-header title">
             </div>
             <div class="modal-body">
-                Are you sure you want to continue? This action is irreversible and will eliminate all your related employees!
+                Are you sure you want to continue? This action is irreversible and will eliminate all the related employees!
             </div>
             <div class="modal-footer">
 				<form id="delete-form" method="POST">
@@ -47,20 +47,25 @@
 					<table class="table">
 					<thead>
 						<tr>
+							<th>#</th>
 							<th>Name</th>
 							<th>Email</th>
 							<th>Website</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
+					<tfoot>
+						{{ $companies->links() }}
+					</tfoot>
 					<tbody>
 						@if($companies->isEmpty())
 						<tr>
 							<td>No records found... <a href="{{route('companies.create')}}">Add a new company!</a></td>
 						</tr>
 						@else
-						@foreach($companies as $company)
+						@foreach($companies as $key => $company)
 						<tr>
+							<td> {{$key+1}} </td>
 							<td> {{$company['first_name']}} </td>
 							<td> {{$company['email']}} </td>
 							<td> {{$company['website']}} </td>

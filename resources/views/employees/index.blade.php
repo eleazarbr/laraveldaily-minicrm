@@ -47,6 +47,7 @@
 					<table class="table">
 					<thead>
 						<tr>
+							<th>#</th>
 							<th>Name</th>
 							<th>Company</th>
 							<th>Email</th>
@@ -54,14 +55,18 @@
 							<th>Actions</th>
 						</tr>
 					</thead>
+					<tfoot>
+						{{ $employees->links() }}
+					</tfoot>
 					<tbody>
 						@if($employees->isEmpty())
 						<tr>
 							<td>No records found... <a href="{{route('employees.create')}}">Add an employee!</a></td>
 						</tr>
 						@else
-						@foreach($employees as $employee)
+						@foreach($employees as $key => $employee)
 						<tr>
+							<td> {{$key+1}} </td>
 							<td> {{$employee['fullname']}} </td>
 							<td> {{$employee->company['first_name']}} </td>
 							<td> {{$employee['email']}} </td>

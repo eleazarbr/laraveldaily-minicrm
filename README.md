@@ -20,7 +20,7 @@ This is my implementation of the mini-crm project from [Laravel Daily](http://la
 - [x] Store companies logos in storage/app/public folder and make them accessible from public
 - [x] Use basic Laravel resource controllers with default methods – index, create, store etc.
 - [x] Use Laravel’s validation function, using Request classes
-- [ ] Use Laravel’s pagination for showing Companies/Employees list, 10 entries per page
+- [x] Use Laravel’s pagination for showing Companies/Employees list, 10 entries per page
 - [ ] Use Laravel make:auth as default Bootstrap-based design theme, but remove ability to register
 - [ ] Use Datatables.net library to show table – with our without server-side rendering
 - [ ] Use more complicated front-end theme like AdminLTE
@@ -42,7 +42,7 @@ This is my implementation of the mini-crm project from [Laravel Daily](http://la
 - Created views for employees.
 - Created a symbolic link using `php artisan storage:link` to access the logos stored in storage.
 - Finished coding the basic crud for companies and employees.
-- 
+- In this [commit](), I added the Laravel's Pagination, this was a feature that I had never used, because I always used DataTables!
 
 #### Installation Instructions
 
