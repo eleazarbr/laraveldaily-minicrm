@@ -22,7 +22,7 @@ This is my implementation of the mini-crm project from [Laravel Daily](http://la
 - [x] Use Laravel’s validation function, using Request classes
 - [x] Use Laravel’s pagination for showing Companies/Employees list, 10 entries per page
 - [x] Use Laravel make:auth as default Bootstrap-based design theme, but remove ability to register
-- [ ] Use Datatables.net library to show table – with our without server-side rendering
+- [x] Use Datatables.net library to show table – with our without server-side rendering
 - [ ] Use more complicated front-end theme like AdminLTE
 - [ ] Email notification: send email whenever new company is entered (use Mailgun or Mailtrap)
 - [ ] Make the project multi-language (using resources/lang folder)
@@ -44,7 +44,7 @@ This is my implementation of the mini-crm project from [Laravel Daily](http://la
 - Finished coding the basic crud for companies and employees.
 - In this [commit](https://github.com/eleazarbr/laraveldaily-minicrm/commit/3bc191fbc5f9ecc054cf063ab1fea683bd224969), I added the Laravel's Pagination, this was a feature that I had never used, because I always used DataTables!
 - Removed the ability to register, simply overriding the register route in the web.php file.
-
+- Replaced the PHP way to render tables, now [DataTables](https://datatables.net/) library is used. Used [Laravel Mix](https://laravel.com/docs/5.6/mix) to define the compilation steps of the Webpack.
 #### Installation Instructions
 
 1. Run `git clone https://github.com/eleazarbr/laraveldaily-minicrm`

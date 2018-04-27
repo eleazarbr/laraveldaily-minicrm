@@ -17,5 +17,13 @@
         "laravel-mix": "^1.0",
         "lodash": "^4.17.4",
         "vue": "^2.5.7"
+    },
+    "dependencies": {
+        "datatables.net": "^1.10.16",
+        "datatables.net-autofill": "^2.2.2",
+        "datatables.net-bs": "^1.10.16",
+        "datatables.net-buttons": "^1.5.1",
+        "datatables.net-responsive": "^2.2.1",
+        "npm": "^6.0.0"
     }
 }

@@ -15,6 +15,10 @@ class Employee extends Model
 		'phone'
 	];
 
+	protected $appends = [
+		'fullname',
+	];
+
 
 	/**
 	 * Relationships

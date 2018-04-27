@@ -15,10 +15,18 @@ class EmployeesController extends Controller
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
-		$employees = Employee::orderBy('created_at', 'DESC')->paginate(10);
-		return view('employees.index', compact('employees'));
+		$employees = Employee::with('company')->orderBy('created_at', 'DESC')->paginate(10);
+		switch ($request->ws) 
+		{
+			case 'getEmployees' :
+				return $employees;
+				break;
+
+			default :
+				return view('employees.index', compact('employees'));
+		}
 	}
 
 	/**
