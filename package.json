@@ -19,6 +19,7 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
+        "adminbsb-materialdesign": "^1.0.5",
         "datatables.net": "^1.10.16",
         "datatables.net-autofill": "^2.2.2",
         "datatables.net-bs": "^1.10.16",
