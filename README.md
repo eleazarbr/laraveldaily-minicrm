@@ -45,6 +45,9 @@ This is my implementation of the mini-crm project from [Laravel Daily](http://la
 - In this [commit](https://github.com/eleazarbr/laraveldaily-minicrm/commit/3bc191fbc5f9ecc054cf063ab1fea683bd224969), I added the Laravel's Pagination, this was a feature that I had never used, because I always used DataTables!
 - Removed the ability to register, simply overriding the register route in the web.php file.
 - Replaced the PHP way to render tables, now [DataTables](https://datatables.net/) library is used. Used [Laravel Mix](https://laravel.com/docs/5.6/mix) to define the compilation steps of the Webpack.
+- Used [Admin BSB Material Design](https://github.com/gurayyarar/AdminBSBMaterialDesign) instead of [AdminLTE](https://github.com/almasaeed2010/AdminLTE), developed with Bootstrap 3 Framework and Google Material Design. 
+
+
 #### Installation Instructions
 
 1. Run `git clone https://github.com/eleazarbr/laraveldaily-minicrm`
