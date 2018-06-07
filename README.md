@@ -23,7 +23,7 @@ This is my implementation of the mini-crm project from [Laravel Daily](http://la
 - [x] Use Laravel’s pagination for showing Companies/Employees list, 10 entries per page
 - [x] Use Laravel make:auth as default Bootstrap-based design theme, but remove ability to register
 - [x] Use Datatables.net library to show table – with our without server-side rendering
-- [ ] Use more complicated front-end theme like AdminLTE
+- [x] Use more complicated front-end theme like AdminLTE
 - [ ] Email notification: send email whenever new company is entered (use Mailgun or Mailtrap)
 - [ ] Make the project multi-language (using resources/lang folder)
 - [ ] Basic testing with PHPUnit
