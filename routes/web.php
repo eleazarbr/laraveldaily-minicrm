@@ -11,19 +11,23 @@
 |
 */
 
+Route::get('logout', function () {
+	app(\App\Http\Controllers\Auth\LoginController::class)->logout(request());
+});
+
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 Auth::routes();
 Route::get('register', function () {
-    return redirect('/');
+	return redirect('/');
 })->name('register');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('companies', 'CompaniesController');
-    Route::resource('employees', 'EmployeesController');
+	Route::resource('companies', 'CompaniesController');
+	Route::resource('employees', 'EmployeesController');
 });

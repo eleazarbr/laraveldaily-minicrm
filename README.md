@@ -1,7 +1,8 @@
-# Laravel Daily - MiniCRM
+# Laravel Daily - MiniCRM using Admin BSB
 
-This is my implementation of the mini-crm project from [Laravel Daily](http://laraveldaily.com/test-junior-laravel-developer-sample-project/).
+[AdminBSB](https://github.com/gurayyarar/AdminBSBMaterialDesign) is a free admin panel that is based on Bootstrap 3.x with Material Design.
 
+Also recorded a **YouTube video** about [how to install AdminBSB](https://www.youtube.com/watch?v=-cmCydc2YFc&t=63s) apart in your projects using Laravel mix.
 
 #### Table of contents
 - [About](#about)
@@ -9,6 +10,12 @@ This is my implementation of the mini-crm project from [Laravel Daily](http://la
 - [Installation Instructions](#installation-instructions)
 
 #### About
+
+Clone this repository to start using Laravel 5.6 with [AdminBSB](https://github.com/gurayyarar/AdminBSBMaterialDesign).
+
+![screenshot-2018-6-30 welcome to bootstrap based admin template - material design](https://user-images.githubusercontent.com/4369018/42126879-7e40188c-7c54-11e8-8fe6-29e9088a2357.png)
+
+It also contains the following things:
 
 - [x] Basic Laravel Auth: ability to log in as administrator or user.
 - [x] Use database seeds to create first user with email "admin@admin.com" and password "password".
@@ -27,7 +34,6 @@ This is my implementation of the mini-crm project from [Laravel Daily](http://la
 - [ ] Email notification: send email whenever new company is entered (use Mailgun or Mailtrap)
 - [ ] Make the project multi-language (using resources/lang folder)
 - [ ] Basic testing with PHPUnit
-
 
 ## Summary
 
@@ -55,13 +61,17 @@ This is my implementation of the mini-crm project from [Laravel Daily](http://la
     * ```mysql -u root -p```, 
     * ```create database laraveldaily;```
     * ```\q```
-3. From the projects root run `cp .env.example .env`
-4. Configure your `.env` file
-5. Run `composer update` from the projects root folder
-6. From the projects root folder run `php artisan key:generate`
-7. From the projects root folder run `php artisan migrate`
-8. From the projects root folder run `composer dump-autoload`
-9. From the projects root folder run `php artisan db:seed`
+3. Run `composer update` from the projects root folder
+4. From the projects root run `cp .env.example .env`
+5. Configure your `.env` file
+6. Run `composer update` from the projects root folder
+7. From the projects root folder run `php artisan key:generate`
+8. From the projects root folder run `php artisan migrate`
+9. From the projects root folder run `php artisan make:auth`
+10. From the projects root folder run `composer dump-autoload`
+11. From the projects root folder run `php artisan db:seed`
+12. Set up a virtual host or run `php artisan serve` 
+
 ## License
 
 This project is open-sourced software licensed under the MIT license.
