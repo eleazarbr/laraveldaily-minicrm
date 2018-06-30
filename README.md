@@ -2,7 +2,7 @@
 
 [AdminBSB](https://github.com/gurayyarar/AdminBSBMaterialDesign) is a free admin panel that is based on Bootstrap 3.x with Material Design.
 
-Also recorded a **YouTube video** about [how to install AdminBSB](https://www.youtube.com/watch?v=-cmCydc2YFc&t=63s) apart in your projects using Laravel mix.
+Also recorded a **YouTube video** about [how to install AdminBSB](https://www.youtube.com/watch?v=-cmCydc2YFc) apart in your projects using Laravel mix.
 
 #### Table of contents
 - [About](#about)
