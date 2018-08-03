@@ -25,8 +25,9 @@
 		</header>
 
 		@include('layouts._partials.page-loader')
-		@include('layouts._partials.search-bar')
-		@include('layouts._partials.sidebars')
+		@include('layouts._partials.left-sidebar')
+		@include('layouts._partials.footer')
+		@include('layouts._partials.right-sidebar')
 
 		@yield('content')
 	</div>

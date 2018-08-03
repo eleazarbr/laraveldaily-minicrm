@@ -1,3 +1,6 @@
+@include('layouts._partials.search-bar')
+
+<!-- Top Bar -->
 <nav class="navbar navbar-default navbar-static-top">
 	<div class="container">
 		<div class="navbar-header">
@@ -11,52 +14,55 @@
 			</button>
 
 			<!-- Branding Image -->
-			<a class="navbar-brand" href="{{ url('/') }}">
+			<a class="navbar-brand" href="{{ url('/home') }}">
 				{{ config('app.name') }}
 			</a>
 		</div>
 
-		<div class="collapse navbar-collapse" id="app-navbar-collapse">
-			<!-- Left Side Of Navbar -->
-			<ul class="nav navbar-nav">
-				&nbsp;
-			</ul>
-
-			<!-- Right Side Of Navbar -->
-			<ul class="nav navbar-nav navbar-right">
-				<!-- Authentication Links -->
-				@guest
-					<li><a href="{{ route('login') }}">Login</a></li>
-					<!-- <li><a href="{{ route('register') }}">Register</a></li> -->
-				@else
-					<li>
-						<a href="{{ route('companies.index') }}"> Companies </a>
-					</li>
-					<li>
-						<a href="{{ route('employees.index') }}"> Employees </a>
-					</li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-							{{ Auth::user()->name }} <span class="caret"></span>
-						</a>
-
-						<ul class="dropdown-menu">
-							<li>
-								<a href="{{ route('logout') }}"
-								onclick="event.preventDefault();
-								document.getElementById('logout-form').submit();">
-								Logout
-								</a>
-
-								<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-									{{ csrf_field() }}
-								</form>
+		 <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Call Search -->
+                    <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
+                    <!-- #END# Call Search -->
+                    <!-- Notifications -->
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                            <i class="material-icons">notifications</i>
+                            <span class="label-count">0</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">NOTIFICATIONS</li>
+                            <li class="body">
+                                <ul class="menu">
+                                    <li>
+                                    </li>
+								</ul>
 							</li>
-						</ul>
-					</li>
-				@endguest
-			</ul>
-		</div>
-	</div>
+                        </ul>
+                    </li>
+                    <!-- #END# Notifications -->
+                    <!-- Tasks -->
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                            <i class="material-icons">flag</i>
+                            <span class="label-count">0</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">TASKS</li>
+                            <li class="body">
+                                <ul class="menu tasks">
+                                    <li>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer">
+                                <a href="javascript:void(0);">View All Tasks</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- #END# Tasks -->
+                    <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
+                </ul>
+            </div>
+        </div>
 </nav>
-
