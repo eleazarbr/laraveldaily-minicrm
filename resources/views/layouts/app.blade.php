@@ -28,13 +28,15 @@
 		@include('layouts._partials.left-sidebar')
 		@include('layouts._partials.footer')
 		@include('layouts._partials.right-sidebar')
-
-		@yield('content')
+		<section class="content">
+			<div class="container-fluid">
+				@yield('content')
+			<div>
+		</section>
 	</div>
 
 	<!-- Scripts -->
 	<script src=" {{mix('/js/app.js')}} "></script>
-
 	@yield('scripts')
 
 </body>

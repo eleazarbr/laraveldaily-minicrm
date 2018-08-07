@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('title', 'Companies')
 @section('content')
 
 <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -21,42 +22,42 @@
 	</div>
 </div>
 
-<div class="container">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading">Companies</div>
+<div class="row clearfix">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+        	<div class="header">
+            	<h2>
+            	    Companies
+            	</h2>
+			</div>
 
-				<div class="panel-body">
-					@if (session('success'))
-						<div class="alert alert-success" role="alert">
-							{{ session('success') }}
-							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-					@endif
-					<div class="text-left">
-						<a href="{{ route('companies.create') }}" type="submit" class="btn btn-primary btn-flat margin-bottom-1">
-							+ New company
-						</a>
+			<div class="body">
+				@if (session('success'))
+					<div class="alert alert-success" role="alert">
+						{{ session('success') }}
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
 					</div>
-
-					<hr>
-					<table class="table table table-striped table-bordered" style="width:100%" id="companies-dt">
-						<thead>
-							<tr>
-								<th>Name</th>
-								<th>Email</th>
-								<th>Website</th>
-								<th>Actions</th>
-							</tr>
-						</thead>
-						<tbody>
-						</tbody>
-					</table>
-
-				</div>
+				@endif
+				
+				<div class="text-left">
+					<a href="{{ route('companies.create') }}" type="submit" class="btn btn-primary btn-flat margin-bottom-1">
+						+ New company
+					</a>
+				<hr>
+				<table class="table table table-striped table-bordered" style="width:100%" id="companies-dt">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Website</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>
