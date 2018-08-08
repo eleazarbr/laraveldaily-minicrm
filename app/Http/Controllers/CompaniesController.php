@@ -51,12 +51,12 @@ class CompaniesController extends Controller
 		try {
 			DB::beginTransaction();
 			$company = Company::create($request->all());
-			
+
 			if ($request->has('logo')) {
 				$logo = $request->file('logo')->storeAs('logo', $company->id, 'public');
 				$company->update(['logo' => $company->id]);
 			}
-			
+
 			DB::commit();
 			$response = $company->first_name . " successfully created!";
 		} catch (\Throwable $t) {
@@ -98,16 +98,17 @@ class CompaniesController extends Controller
 	 */
 	public function update(UpdateCompanyRequest $request, Company $company)
 	{
-		if ($request->has('logo'))
+		if ($request->has('logo')) {
 			$logo = $request->file('logo')->storeAs('logo', $company->id, 'public');
-	
+		}
+
 		$company->update([
 			'first_name' => $request->first_name,
 			'email' => $request->email,
 			'website' => $request->website,
 			'logo' => $company->id
 		]);
-		
+
 		return redirect()->route('companies.index')->withSuccess($company->first_name . ' updated!');
 	}
 
