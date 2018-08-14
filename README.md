@@ -1,8 +1,6 @@
 # Laravel Daily - MiniCRM using Admin BSB
 
-[AdminBSB](https://github.com/gurayyarar/AdminBSBMaterialDesign) is a free admin panel that is based on Bootstrap 3.x with Material Design.
-
-Also recorded a **YouTube video** about [how to install AdminBSB](https://www.youtube.com/watch?v=-cmCydc2YFc) apart in your projects using Laravel mix.
+[AdminBSB](https://github.com/gurayyarar/AdminBSBMaterialDesign) is a free admin panel that is based on Bootstrap 3.x with Material Design. Check out this video to see [how to install AdminBSB](https://www.youtube.com/watch?v=-cmCydc2YFc) in a standalone project using Laravel mix.
 
 #### Table of contents
 - [About](#about)
@@ -19,7 +17,7 @@ It also contains the following things:
 
 - [x] Basic Laravel Auth: ability to log in as administrator or user.
 - [x] Use database seeds to create first user with email "admin@admin.com" and password "password".
-- [x] Employees DB table consists of these fields: First name (required), last name (required), Company (foreign key to Companies), email, phone 
+- [x] Employees DB table consists of these fields: First name (required), last name (required), Company (foreign key to Companies), email, phone
 - [x] Companies DB table consists of these fields: Name (required), email, logo (minimum 100×100), website
 - [x] CRUD functionality (Create / Read / Update / Delete) for two menu items: Companies and Employees.
 - [x] Use database migrations to create those schemas above
@@ -31,7 +29,7 @@ It also contains the following things:
 - [x] Use Laravel make:auth as default Bootstrap-based design theme, but remove ability to register
 - [x] Use Datatables.net library to show table – with our without server-side rendering
 - [x] Use more complicated front-end theme like AdminLTE
-- [ ] Email notification: send email whenever new company is entered (use Mailgun or Mailtrap)
+- [x] Email notification: send email whenever new company is entered (use Mailgun or Mailtrap)
 - [ ] Make the project multi-language (using resources/lang folder)
 - [ ] Basic testing with PHPUnit
 
@@ -51,14 +49,14 @@ It also contains the following things:
 - In this [commit](https://github.com/eleazarbr/laraveldaily-minicrm/commit/3bc191fbc5f9ecc054cf063ab1fea683bd224969), I added the Laravel's Pagination, this was a feature that I had never used, because I always used DataTables!
 - Removed the ability to register, simply overriding the register route in the web.php file.
 - Replaced the PHP way to render tables, now [DataTables](https://datatables.net/) library is used. Used [Laravel Mix](https://laravel.com/docs/5.6/mix) to define the compilation steps of the Webpack.
-- Used [Admin BSB Material Design](https://github.com/gurayyarar/AdminBSBMaterialDesign) instead of [AdminLTE](https://github.com/almasaeed2010/AdminLTE), developed with Bootstrap 3 Framework and Google Material Design. 
+- Used [Admin BSB Material Design](https://github.com/gurayyarar/AdminBSBMaterialDesign) instead of [AdminLTE](https://github.com/almasaeed2010/AdminLTE), developed with Bootstrap 3 Framework and Google Material Design.
 
 
 #### Installation Instructions
 
 1. Run `git clone https://github.com/eleazarbr/laraveldaily-minicrm`
 2. Create a MySQL database for the project
-    * ```mysql -u root -p```, 
+    * ```mysql -u root -p```,
     * ```create database laraveldaily;```
     * ```\q```
 3. Run `composer update` from the projects root folder
@@ -70,7 +68,7 @@ It also contains the following things:
 9. From the projects root folder run `php artisan make:auth`
 10. From the projects root folder run `composer dump-autoload`
 11. From the projects root folder run `php artisan db:seed`
-12. Set up a virtual host or run `php artisan serve` 
+12. Set up a virtual host or run `php artisan serve`
 
 ## License
 

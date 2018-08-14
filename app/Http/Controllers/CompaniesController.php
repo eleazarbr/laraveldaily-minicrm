@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateCompanyRequest;
 use App\Http\Requests\StoreCompanyRequest;
+use App\Notifications\SimpleNotification;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Company;
@@ -57,6 +58,15 @@ class CompaniesController extends Controller
 				$company->update(['logo' => $company->id]);
 			}
 
+			/**
+			 * Send email whenever new company is entered (use Mailgun or Mailtrap)
+			 */
+			$request->user()->notify(new SimpleNotification([
+				'subject' => 'Se ha creado una compañia',
+				'url' => route('companies.show', $company->id),
+				'gretting' => 'Gracias por usar nuestra aplicación!',
+			]));
+
 			DB::commit();
 			$response = $company->first_name . " successfully created!";
 		} catch (\Throwable $t) {
@@ -108,6 +118,12 @@ class CompaniesController extends Controller
 			'website' => $request->website,
 			'logo' => $company->id
 		]);
+
+		$request->user()->notify(new SimpleNotification([
+			'subject' => 'Se ha actualizado una compañia',
+			'url' => route('companies.edit', $company->id),
+			'gretting' => 'Gracias por usar nuestra aplicación!',
+		]));
 
 		return redirect()->route('companies.index')->withSuccess($company->first_name . ' updated!');
 	}
