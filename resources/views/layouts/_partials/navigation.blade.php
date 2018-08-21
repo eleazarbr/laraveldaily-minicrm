@@ -60,6 +60,36 @@
                             </li>
                         </ul>
                     </li>
+
+					<!-- Languages -->
+					@if (config('locale.status') && count(config('locale.languages')) > 1)
+					<li class="dropdown">
+						<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+							<i class="material-icons">language</i>
+						</a>
+						<ul class="dropdown-menu">
+							<li class="header">LENGUAJES</li>
+								<li class="body">
+	                                <ul class="menu tasks">
+										@foreach (array_keys(config('locale.languages')) as $lang)
+											@if ($lang != App::getLocale())
+											<li>
+												<a href="{{route('lang.swap', $lang)}}">
+													<h4>
+														{{ trans('front.menus.language') }}
+														<small>{{$lang}}</small>
+													</h4>
+												</a>
+											</li>
+											@endif
+										@endforeach
+									</ul>
+								</li>
+							</li>
+						</ul>
+					</li>
+					@endif
+
                     <!-- #END# Tasks -->
                     <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
                 </ul>

@@ -11,6 +11,13 @@
 |
 */
 
+Route::get('sesion', function () {
+	return session()->all();
+});
+
+// Switch between the included languages
+Route::get('lang/{lang}', 'LanguageController@swap')->name('lang.swap');
+
 Route::get('logout', function () {
 	app(\App\Http\Controllers\Auth\LoginController::class)->logout(request());
 });
