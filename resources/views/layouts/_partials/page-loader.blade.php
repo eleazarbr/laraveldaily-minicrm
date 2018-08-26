@@ -11,7 +11,7 @@
 				</div>
 			</div>
 		</div>
-		<p>Please wait...</p>
+		<p>{{trans('front.page_loader.wait')}}</p>
 	</div>
 </div>
 <!-- #END# Page Loader -->

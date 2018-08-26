@@ -7,7 +7,7 @@
 
 			<!-- Collapsed Hamburger -->
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-				<span class="sr-only">Toggle Navigation</span>
+				<span class="sr-only"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
@@ -31,7 +31,7 @@
                             <span class="label-count">0</span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="header">NOTIFICATIONS</li>
+                            <li class="header">{{ strtoupper(trans('front.menus.notifications')) }}</li>
                             <li class="body">
                                 <ul class="menu">
                                     <li>
@@ -48,7 +48,7 @@
                             <span class="label-count">0</span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="header">TASKS</li>
+                            <li class="header">{{strtoupper(trans('front.menus.tasks'))}}</li>
                             <li class="body">
                                 <ul class="menu tasks">
                                     <li>
@@ -56,7 +56,7 @@
                                 </ul>
                             </li>
                             <li class="footer">
-                                <a href="javascript:void(0);">View All Tasks</a>
+                                <a href="javascript:void(0);">{{trans('front.menus.see_all_tasks')}}</a>
                             </li>
                         </ul>
                     </li>
@@ -68,7 +68,7 @@
 							<i class="material-icons">language</i>
 						</a>
 						<ul class="dropdown-menu">
-							<li class="header">LENGUAJES</li>
+							<li class="header">{{ strtoupper(trans('front.menus.languages')) }}</li>
 								<li class="body">
 	                                <ul class="menu tasks">
 										@foreach (array_keys(config('locale.languages')) as $lang)

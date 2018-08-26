@@ -14,7 +14,7 @@
 						{{ method_field('PUT') }}
 
 						<div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
-							<label for="name" class="col-md-4 control-label">First Name</label>
+							<label for="name" class="col-md-4 control-label">{{trans('front.employees.name')}}</label>
 
 							<div class="col-md-6">
 								<div class="form-line">
@@ -29,7 +29,7 @@
 						</div>
 
 						<div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
-							<label for="name" class="col-md-4 control-label">Last Name</label>
+							<label for="name" class="col-md-4 control-label">{{trans('front.employees.lastname')}}</label>
 
 							<div class="col-md-6">
 								<div class="form-line">
@@ -44,7 +44,7 @@
 						</div>
 
 						<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-							<label for="email" class="col-md-4 control-label">Email Address</label>
+							<label for="email" class="col-md-4 control-label">{{trans('front.employees.email')}}</label>
 
 							<div class="col-md-6">
 								<div class="form-line">
@@ -59,7 +59,7 @@
 						</div>
 
 						<div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
-							<label for="phone" class="col-md-4 control-label">Phone</label>
+							<label for="phone" class="col-md-4 control-label">{{trans('front.employees.phone')}}</label>
 
 							<div class="col-md-6">
 								<div class="form-line">
@@ -74,7 +74,7 @@
 						</div>
 
 						 <div class="form-group{{ $errors->has('company_id') ? ' has-error' : '' }}">
-							<label for="company_id" class="col-md-4 control-label">Company</label>
+							<label for="company_id" class="col-md-4 control-label">{{trans('front.employees.company')}}</label>
 
 							<div class="col-md-6">
 								<select class="" name="company_id">
@@ -97,10 +97,10 @@
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
 								<a href="{{ route('employees.index') }}" type="submit" class="btn btn-info">
-									Cancel
+									{{trans('front.actions.cancel')}}
 								</a>
 								<button type="submit" class="btn btn-primary">
-									Update
+									{{trans('front.actions.update')}}
 								</button>
 							</div>
 						</div>

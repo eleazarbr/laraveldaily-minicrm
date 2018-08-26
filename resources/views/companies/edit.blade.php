@@ -6,14 +6,14 @@
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<div class="card">
 			<div class="header">
-				<h2> Edit {{ $company->first_name }} </h2>
+				<h2> {{trans('front.actions.edit')}} {{ $company->first_name }} </h2>
 			</div>
 			<div class="body">
 				<form class="form-horizontal" method="POST" action="{{ route('companies.update', $company->id) }}" enctype="multipart/form-data">
 					{{ csrf_field() }}
 					{{ method_field('PUT') }}
 					<div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
-						<label for="name" class="col-md-4 control-label">Name</label>
+						<label for="name" class="col-md-4 control-label">{{trans('front.companies.name')}}</label>
 						<div class="col-md-6">
 							<div class="form-line">
 								<input id="name" type="text" class="form-control" name="first_name" value="{{ $company['first_name'] }}" autofocus>
@@ -26,7 +26,7 @@
 						</div>
 					</div>
 					<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-						<label for="email" class="col-md-4 control-label">Email Address</label>
+						<label for="email" class="col-md-4 control-label">{{trans('front.companies.email')}}</label>
 						<div class="col-md-6">
 							<div class="form-line">
 								<input id="email" type="email" class="form-control" name="email" value="{{ $company['email'] }}">
@@ -39,7 +39,7 @@
 						</div>
 					</div>
 					<div class="form-group{{ $errors->has('logo') ? ' has-error' : '' }}">
-						<label for="logo" class="col-md-4 control-label">Logo</label>
+						<label for="logo" class="col-md-4 control-label">{{trans('front.companies.logo')}}</label>
 						<div class="col-md-6">
 							<div class="card" style="width: 18rem;">
 								<img class="card-img-top img-responsive" src="{{asset('storage/logo/'.$company['logo'])}}" alt="">
@@ -57,7 +57,7 @@
 						</div>
 					</div>
 					 <div class="form-group{{ $errors->has('website') ? ' has-error' : '' }}">
-						<label for="website" class="col-md-4 control-label">Website</label>
+						<label for="website" class="col-md-4 control-label">{{trans('front.companies.website')}}</label>
 						<div class="col-md-6">
 							<div class="form-line">
 								<input id="website" type="text" class="form-control" name="website" value="{{$company['website']}}">
@@ -72,10 +72,10 @@
 					<div class="form-group">
 						<div class="col-md-6 col-md-offset-4">
 							<a href="{{ route('companies.index') }}" type="submit" class="btn btn-info">
-								Cancel
+							{{trans('front.actions.cancel')}}
 							</a>
 							<button type="submit" class="btn btn-primary">
-								Update
+							{{trans('front.actions.update')}}
 							</button>
 						</div>
 					</div>

@@ -9,13 +9,13 @@
 			<div class="modal-header title">
 			</div>
 			<div class="modal-body">
-				Are you sure you want to continue? This action is irreversible and will eliminate all the related employees!
+				{{trans('front.actions.delete_warning_company')}}
 			</div>
 			<div class="modal-footer">
 				<form id="delete-form" method="POST">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">{{trans('front.actions.cancel')}}</button>
 				{{ method_field('DELETE')}} {{csrf_field()}}
-				<button type="submit" id="delete-btn" class="btn btn-danger">Yes, I want to delete it!</button>
+				<button type="submit" id="delete-btn" class="btn btn-danger">{{trans('front.actions.cancel_ok')}}</button>
 				</form>
 			</div>
 		</div>
@@ -27,7 +27,7 @@
         <div class="card">
         	<div class="header">
             	<h2>
-            	    Companies
+					{{trans('front.companies.companies')}}
             	</h2>
 			</div>
 
@@ -40,19 +40,19 @@
 						</button>
 					</div>
 				@endif
-				
+
 				<div class="text-left">
 					<a href="{{ route('companies.create') }}" type="submit" class="btn btn-primary btn-flat margin-bottom-1">
-						+ New company
+						{{trans('front.companies.new')}}
 					</a>
 				<hr>
 				<table class="table table table-striped table-bordered" style="width:100%" id="companies-dt">
 					<thead>
 						<tr>
-							<th>Name</th>
-							<th>Email</th>
-							<th>Website</th>
-							<th>Actions</th>
+							<th>{{trans('front.companies.name')}}</th>
+							<th>{{trans('front.companies.email')}}</th>
+							<th>{{trans('front.companies.website')}}</th>
+							<th>{{trans('front.companies.actions')}}</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -85,7 +85,7 @@
 			{data: 'email', name: 'email'},
 			{data: 'website', name: 'website'},
 			{data: 'actions', render : function (data, type, row) {
-				return ' <a type="submit" href="/companies/'+row.id+'" class="btn btn-sm btn-success"> Show </a> <a type="submit" href="/companies/'+row.id+'/edit" class="btn btn-sm btn-primary"> Edit </a> <a type="submit" href="#" class="btn btn-sm btn-danger" data-record-id="'+row.id+'" data-record-title="'+row.first_name+'" data-toggle="modal" data-target="#confirm-delete"> Delete </a>'
+				return ' <a type="submit" href="/companies/'+row.id+'" class="btn btn-sm btn-success"> {{trans('front.actions.show')}} </a> <a type="submit" href="/companies/'+row.id+'/edit" class="btn btn-sm btn-primary"> {{trans('front.actions.edit')}} </a> <a type="submit" href="#" class="btn btn-sm btn-danger" data-record-id="'+row.id+'" data-record-title="'+row.first_name+'" data-toggle="modal" data-target="#confirm-delete"> {{trans('front.actions.delete')}} </a>'
 			}},
 		],
 		lengthChange : true,

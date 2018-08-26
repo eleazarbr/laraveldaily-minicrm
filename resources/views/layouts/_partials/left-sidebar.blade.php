@@ -12,17 +12,17 @@
 				<div class="btn-group user-helper-dropdown">
 					<i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
 					<ul class="dropdown-menu pull-right">
-						<li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+						<li><a href="javascript:void(0);"><i class="material-icons">person</i>{{trans('front.left_bar.profile')}}</a></li>
 						<li role="seperator" class="divider"></li>
-						<li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
-						<li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
-						<li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
+						<li><a href="javascript:void(0);"><i class="material-icons">group</i>{{trans('front.left_bar.followers')}}</a></li>
+						<li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>{{trans('front.left_bar.sales')}}</a></li>
+						<li><a href="javascript:void(0);"><i class="material-icons">favorite</i>{{trans('front.left_bar.likes')}}</a></li>
 						<li role="seperator" class="divider"></li>
 						<li>
 							<a href="{{ route('logout') }}"
 							onclick="event.preventDefault();
 							document.getElementById('logout-form').submit();">
-							Logout
+							{{trans('front.left_bar.logout')}}
 							</a>
 							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 								{{ csrf_field() }}
@@ -36,23 +36,23 @@
 		<!-- Menu -->
 		<div class="menu">
 			<ul class="list">
-				<li class="header">MAIN NAVIGATION</li>
+				<li class="header">{{strtoupper(trans('front.left_bar.main_nav'))}}</li>
 				<li class="active">
 					<a href="{{url('home')}}">
 						<i class="material-icons">home</i>
-						<span>Home</span>
+						<span>{{trans('front.left_bar.home')}}</span>
 					</a>
 				</li>
 				<li class="">
 					<a href="{{ route('companies.index') }}">
 						<i class="material-icons">content_copy</i>
-						<span>Companies</span>
+						<span>{{trans('front.left_bar.companies')}}</span>
 					</a>
 				</li>
 				<li class="">
 					<a href="{{ route('employees.index') }}">
 						<i class="material-icons">widgets</i>
-						<span>Employees</span>
+						<span>{{trans('front.left_bar.employees')}}</span>
 					</a>
 				</li>
 			</ul>
