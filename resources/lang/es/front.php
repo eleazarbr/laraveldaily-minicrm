@@ -1,8 +1,6 @@
 <?php
 
 return [
-	// menus
-
 	'menus' => [
 		'notifications' => 'Notificaciones',
 		'tasks' => 'Tareas',
@@ -71,8 +69,6 @@ return [
 		'register' => 'Registrar',
 		'update' => 'Actualizar',
 		'delete_warning_company' => '¿Estás seguro de que quieres continuar? ¡Esta acción es irreversible y eliminará a todos los empleados relacionados!',
-		// Are you sure you want to continue? This action is irreversible and will eliminate all the related employees!
 	],
-
 
 ];
